@@ -18,7 +18,7 @@ type DB struct {
 
 func (db *DB) nearest(target [3]float64) string {
 	var filename string
-	db.mutex.Lock()
+	//db.mutex.Lock()
 	smallest := 1000000.0
 	for k, v := range db.store {
 		dist := distance(target, v)

@@ -6,16 +6,16 @@ import (
 )
 
 // Delete all threads from database
-func ThreadDeleteAll() (err error) {
-	db := db()
-	defer db.Close()
-	statement := "delete from threads"
-	_, err = db.Exec(statement)
-	if err != nil {
-		return
-	}
-	return
-}
+//func ThreadDeleteAll() (err error) {
+//	db := db()
+//	defer db.Close()
+//	statement := "delete from threads"
+//	_, err = db.Exec(statement)
+//	if err != nil {
+//		return
+//	}
+//	return
+//}
 
 func Test_CreateThread(t *testing.T) {
 	setup()

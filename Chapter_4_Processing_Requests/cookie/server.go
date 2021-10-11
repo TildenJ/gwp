@@ -16,11 +16,13 @@ func setCookie(w http.ResponseWriter, r *http.Request) {
 		Value:    "Manning Publications Co",
 		HttpOnly: true,
 	}
+	//w.Header().Set("Set-Cookie", c1.String())
 	http.SetCookie(w, &c1)
 	http.SetCookie(w, &c2)
 }
 
 func getCookie(w http.ResponseWriter, r *http.Request) {
+	h := r.Header["Cookie"]
 	c1, err := r.Cookie("first_cookie")
 	if err != nil {
 		fmt.Fprintln(w, "Cannot get the first cookie")
@@ -28,6 +30,8 @@ func getCookie(w http.ResponseWriter, r *http.Request) {
 	cs := r.Cookies()
 	fmt.Fprintln(w, c1)
 	fmt.Fprintln(w, cs)
+
+	fmt.Fprintf(w, "\n\n%v\n", h)
 }
 
 func main() {
